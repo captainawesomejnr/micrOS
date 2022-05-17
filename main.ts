@@ -9,8 +9,52 @@ function startup () {
     basic.pause(1000)
     basic.clearScreen()
 }
+function loadscreen () {
+    basic.showLeds(`
+        # # # # #
+        # . . . #
+        # . . . #
+        # . . . #
+        # # # # #
+        `)
+    basic.showLeds(`
+        . . # # #
+        # # . . #
+        # . . . #
+        # # . . #
+        . . # # #
+        `)
+    basic.showLeds(`
+        # # # # #
+        # . . . #
+        # . . . #
+        # . . . #
+        # # # # #
+        `)
+    basic.showLeds(`
+        # # # . .
+        # . . # #
+        # . . . #
+        # . . # #
+        # # # . .
+        `)
+}
+function loadscreenrepeat () {
+    loadscreen()
+    loadscreen()
+    loadscreen()
+    basic.showLeds(`
+        # # # # #
+        # . . . #
+        # . . . #
+        # . . . #
+        # # # # #
+        `)
+    basic.clearScreen()
+}
 input.onButtonPressed(Button.AB, function () {
     basic.showString("Your micro:bit will restart")
     control.reset()
 })
 startup()
+loadscreenrepeat()
